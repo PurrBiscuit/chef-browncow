@@ -4,5 +4,8 @@ maintainer_email 'spurr@articulate.com'
 license          'All rights reserved, preserved and you got served'
 description      'Configures the browncow server on EC2'
 long_description 'Configuration for Browncow Inc servers'
-version          '0.1.1'
+version          '0.1.2'
 
+%w{ ruby }.each do |cookbook|
+  depends cookbook
+end
