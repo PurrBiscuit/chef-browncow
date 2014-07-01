@@ -1,10 +1,10 @@
 # create-cookbook
 
-TODO: Enter the cookbook description here.
+Cheffing the browncow.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Ubuntu 12.04 LTS.
 
 ## Attributes
 
@@ -48,4 +48,4 @@ Include `create` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Stephen Purr (<spurr@articulate.com>)
