@@ -1,11 +1,11 @@
-name             'Chef-Browncow'
+name             'Browncow'
 maintainer       'Stephen Purr'
 maintainer_email 'spurr@articulate.com'
 license          'All rights reserved, preserved and you-got-served'
 description      'Configures the browncow server on EC2'
 long_description 'Configuration for Browncow Inc servers'
-version          '0.1.4'
+version          '0.1.5'
 
-%w{ apt ruby curl apache2 }.each do |cookbook|
+%w{ apt ruby curl apache2 git }.each do |cookbook|
   depends cookbook
 end
