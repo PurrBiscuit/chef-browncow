@@ -1,4 +1,4 @@
-name             'Browncow'
+name             'browncow'
 maintainer       'Stephen Purr'
 maintainer_email 'spurr@articulate.com'
 license          'All rights reserved, preserved and you-got-served'
