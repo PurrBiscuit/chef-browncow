@@ -29,7 +29,7 @@ node.deploy_dir.each do |deploy_dir|
 	# Configure application vhost
 	node.apache.app_name.each do |app_name|
 	  template "#{node.apache.dir}/sites-available/#{app_name}.conf" do
-	    source "vhost.conf.erb"
+	    source "#{app_name}.conf.erb"
 	    mode 0644
 	    owner "root"
 	    group "root"
