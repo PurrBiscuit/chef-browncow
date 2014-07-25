@@ -1,9 +1,9 @@
 <VirtualHost *:80>
-  ServerName <%= @app_name %>
-  ServerAlias
-  DocumentRoot <%= web_dir %> 
+  ServerName <%= @server_name %>
+  ServerAlias www.<%= @server_name %>
+  DocumentRoot <%= @web_dir %> 
 
-  <Directory <%= web_dir %>>
+  <Directory <%= @web_dir %>>
     Options FollowSymLinks
     AllowOverride <%= [ @allow_override || "None" ].flatten.join(" ") %>
     Order allow,deny
@@ -20,8 +20,8 @@
 
   LogLevel info
   LogFormat "\"%{HTTP_CLIENT_IP}e\" %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"" client_ip
-  ErrorLog <%= @log_dir %>/www-error.log
-  CustomLog <%= @log_dir %>/www-access.log client_ip
+  ErrorLog <%= @node.apache.log_dir %>/www-error.log
+  CustomLog <%= @node.apache.log_dir %>/www-access.log client_ip
 
   DirectoryIndex <%= @indexes.flatten.join(" ") %>
 </VirtualHost>

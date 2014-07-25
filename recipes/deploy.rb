@@ -33,13 +33,12 @@ node.deploy_dir.each do |deploy_dir|
 	    mode 0644
 	    owner "root"
 	    group "root"
-	    variables({
-	      log_dir:        node.apache.log_dir,
-	      server_name:    app_name,
-	      web_dir:        "browncow.com/current",
+	    variables(
+	    	server_name:    app_name,  
+	      web_dir:        "#{deploy_dir}/current",
 	      indexes:        node.apache.indexes,
 	      allow_override: node.apache.override
-	    })
+	    )
 	    notifies :restart, "service[apache2]"
 	  end 
 	# Enable site (equivalent of a2ensite)
