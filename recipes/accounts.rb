@@ -1,6 +1,4 @@
-deploy_keys = node.deploy_keys
-
-node.users.each do |username|  
+node.browncow_users.each do |username|  
   group username do
     action :create
   end
@@ -22,10 +20,14 @@ node.users.each do |username|
   end
 
   template "/home/#{username}/.ssh/authorized_keys" do 
-    source "username.erb"
+    source "keys.erb"
     owner username
     group username
     mode "0600"
-    variables(keys: deploy_keys)
+    if username == 'app'
+      variables(keys: node.deploy_keys)
+    else
+      variables(keys: node.browncow_keys)
+    end
   end
 end

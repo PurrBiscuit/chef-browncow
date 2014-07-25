@@ -1,6 +1,3 @@
-
-web_dir         = "#{node.deploy_dir}/current"
-shared_dir      = "#{node.deploy_dir}/shared"
 deploy_username = node.deploy_user.username
 
 # Create deploy directory
@@ -25,25 +22,25 @@ node.deploy_dir.each do |deploy_dir|
 	  action :modify
 	  members "www-data"
 	end
+end
 
-	# Configure application vhost
-	node.apache.app_name.each do |app_name|
-	  template "#{node.apache.dir}/sites-available/#{app_name}.conf" do
-	    source "#{app_name}.conf.erb"
-	    mode 0644
-	    owner "root"
-	    group "root"
-	    variables(
-	    	server_name:    app_name,  
-	      web_dir:        "#{deploy_dir}/current",
-	      indexes:        node.apache.indexes,
-	      allow_override: node.apache.override
-	    )
-	    notifies :restart, "service[apache2]"
-	  end 
-	# Enable site (equivalent of a2ensite)
-		apache_site "#{app_name}.conf" do
-		  enable true
-		end
+# Configure application vhost
+node.apache.app_name.each do |app_name|
+  template "#{node.apache.dir}/sites-available/#{app_name}.conf" do
+    source "#{app_name}.conf.erb"
+    mode 0644
+    owner "root"
+    group "root"
+    variables(
+    	server_name:    app_name,  
+      web_dir:        "/var/www/browncow.com/current",
+      indexes:        node.apache.indexes,
+      allow_override: node.apache.override
+    )
+    notifies :restart, "service[apache2]"
+  end 
+# Enable site (equivalent of a2ensite)
+	apache_site "#{app_name}.conf" do
+	  enable true
 	end
 end

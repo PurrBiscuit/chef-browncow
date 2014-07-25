@@ -5,6 +5,7 @@ include_recipe "apache2"
 include_recipe "git"
 include_recipe "browncow::accounts"
 include_recipe "browncow::deploy"
+include_recipe "browncow::hostsfile"
 
 # Install system packages
 %w{git sendmail}.each do |package_name|
