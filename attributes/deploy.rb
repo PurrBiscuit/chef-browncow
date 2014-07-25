@@ -1,3 +1,5 @@
 default.deploy_user.username = "app"
-default.deploy_dir = "/var/www/browncow.com"
-default.deploy_keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key" ]
+default.deploy_dir = %w{ /var/www/browncow.com /var/www/littlecow.com }
+default.deploy_keys = [
+  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCavi8Mo0AlN2z2NiKx9UhYaxBrAOQv3Ko7pojoPK3L1sL5CJHBFW9Os6uatgvXkgtpbjoPqIFHa+5xlLZdTldw0j0K5q3Ng9kN7JwCPptNk1q870ZEfWcSEtH7AojXwOreseu6DWAU0IhiOFEBw+DpNySpLlgoUWW9uv/1BHFz5nFju3izw6azthPzr/LKXro7o7+3OvWcqh5OOpKenW19eJ97iBPLKgmh8b8j3IFPw2A1COJs1SlIv1TxOlwpotmP69+Sa2WRcdH+H9gOgul1RdirYprda5YqUbTnGHfy+4f1aHgPwn+md0K7epG+ZoymGPr+831rAEj4QQtThwWj Purr@Stephens-MacBook-Pro.local"
+ ]

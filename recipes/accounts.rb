@@ -1,29 +1,33 @@
-deploy_keys = node.deploy_keys
-
-  group "app" do
+node.browncow_users.each do |username|  
+  group username do
     action :create
   end
 
-  user "app" do 
+  user username do 
     action :create
-    home "/home/app"
+    home "/home/#{username}"
     shell "/bin/bash"
-    gid "app"
+    gid username
   end
 
-  [ "/home/app", "/home/app/.ssh" ].each do |dir|
+  %W{ /home/#{username} /home/#{username}/.ssh }.each do |dir|
     directory dir do 
-      owner "app"
-      group "app"
+      owner username
+      group username
       action :create
       recursive true
     end
   end
 
-  template "/home/app/.ssh/authorized_keys" do 
-    source "app.erb"
-    owner "app"
-    group "app"
+  template "/home/#{username}/.ssh/authorized_keys" do 
+    source "keys.erb"
+    owner username
+    group username
     mode "0600"
-    variables(keys: deploy_keys)
+    if username == 'app'
+      variables(keys: node.deploy_keys)
+    else
+      variables(keys: node.browncow_keys)
+    end
   end
+end
