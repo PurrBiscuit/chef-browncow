@@ -6,6 +6,7 @@ include_recipe "git"
 include_recipe "browncow::accounts"
 include_recipe "browncow::deploy"
 include_recipe "browncow::hostsfile"
+include_recipe "browncow::newrelic"
 
 # Install system packages
 %w{git sendmail}.each do |package_name|
