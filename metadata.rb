@@ -4,7 +4,7 @@ maintainer_email 'steve@purrbiscuit.com'
 license          'All rights reserved, preserved and you-got-served'
 description      'Configures the purrbiscuit server on EC2'
 long_description 'Configuration for PurrBiscuit servers'
-version          '0.3.1'
+version          '0.4.0'
 
 depends "apt"
 depends "ruby"
