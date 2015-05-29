@@ -1,4 +1,4 @@
-node.browncow_users.each do |username|  
+node.purrbiscuit_users.each do |username|  
   group username do
     action :create
   end
@@ -27,7 +27,7 @@ node.browncow_users.each do |username|
     if username == 'app'
       variables(keys: node.deploy_keys)
     else
-      variables(keys: node.browncow_keys)
+      variables(keys: node.purrbiscuit_keys)
     end
   end
 end

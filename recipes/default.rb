@@ -3,22 +3,7 @@ include_recipe "ruby"
 include_recipe "curl"
 include_recipe "apache2"
 include_recipe "git"
-include_recipe "browncow::accounts"
-include_recipe "browncow::deploy"
-include_recipe "browncow::hostsfile"
-include_recipe "browncow::newrelic"
-
-# Install system packages
-%w{git sendmail}.each do |package_name|
-  package package_name do
-    action :install
-  end
-end
-
-# Install apache related packages
-%w{php5-mysql php5-pgsql php-apc php5-curl}.each do |package_name|
-  package package_name do
-    action :install
-    notifies :restart, "service[apache2]"
-  end
-end
+include_recipe "purrbiscuit::accounts"
+include_recipe "purrbiscuit::deploy"
+include_recipe "purrbiscuit::hostsfile"
+include_recipe "purrbiscuit::newrelic" unless Chef::Config[:solo]

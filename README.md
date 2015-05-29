@@ -1,6 +1,6 @@
 # create-cookbook
 
-Cheffing the browncow.
+Cheffing the purrbiscuit.
 
 ## Supported Platforms
 

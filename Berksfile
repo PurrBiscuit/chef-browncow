@@ -1,11 +1,3 @@
-source "https://supermarket.getchef.com"
+source "https://supermarket.chef.io/"
 
 metadata
-
-cookbook "ruby"
-cookbook "apt"
-cookbook "curl"
-cookbook "apache2"
-cookbook "git"
-cookbook "hostsfile"
-cookbook "newrelic"

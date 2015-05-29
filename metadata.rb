@@ -1,11 +1,15 @@
-name             'browncow'
+name             'purrbiscuit'
 maintainer       'Stephen Purr'
-maintainer_email 'spurr@articulate.com'
+maintainer_email 'steve@purrbiscuit.com'
 license          'All rights reserved, preserved and you-got-served'
-description      'Configures the browncow server on EC2'
-long_description 'Configuration for Browncow Inc servers'
+description      'Configures the purrbiscuit server on EC2'
+long_description 'Configuration for PurrBiscuit servers'
 version          '0.3.1'
 
-%w{ apt ruby curl apache2 git hostsfile newrelic }.each do |cookbook|
-  depends cookbook
-end
+depends "apt"
+depends "ruby"
+depends "curl"
+depends "apache2"
+depends "git"
+depends "hostsfile"
+depends "newrelic", "1.3.0"
